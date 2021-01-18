@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html  >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.2.0, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logogesoc-343x116.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Egresos</title>
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/datatables/data-tables.bootstrap4.min.css">
+  <link rel="stylesheet" href="assets/formstyler/jquery.formstyler.css">
+  <link rel="stylesheet" href="assets/formstyler/jquery.formstyler.theme.css">
+  <link rel="stylesheet" href="assets/datepicker/jquery.datetimepicker.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
+  
+  
+  
+</head>
+<body>
+  
+  <section class="menu cid-sdN76m3898" once="menu" id="menu1-1q">
+    
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="/index">
+                        <img src="assets/images/logogesoc-343x116.png" alt="Mobirise" style="height: 3.8rem;">
+                    </a>
+                </span>
+                
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="home">Home</a></li><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="egresos">Egresos</a></li><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="ingresos">Ingresos</a></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="presupuestos">Presupuestos</a></li></ul>
+            </div>
+        </div>
+    </nav>
+
+</section>
+
+<section class="section-table cid-sdMVf2drxu mbr-parallax-background" id="table1-14">
+  <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(255, 255, 255);">
+  </div>
+  <div class="container container-table">
+      <h2 class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">Egresos</h2>
+      <div class="table-wrapper">
+        <div class="container">
+          <div class="row search">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <div class="dataTables_filter">
+                  <label class="searchInfo mbr-fonts-style display-7">Buscar:</label>
+                  <input class="form-control input-sm" disabled="">
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container scroll">
+          <table class="table isSearch" cellspacing="0" data-empty="No hay coincidencias">
+            <thead>
+              <tr class="table-heads ">
+                  <th class="head-item mbr-fonts-style">ID</th>
+                  <th class="head-item mbr-fonts-style">FECHA</th>
+                  <th class="head-item mbr-fonts-style">CRITERIO PROVEEDOR</th>
+                  <th class="head-item mbr-fonts-style">TOTAL</th>
+                  <th class="head-item mbr-fonts-style">INGRESO</th>
+                  <th class="head-item mbr-fonts-style">#PRESUPUESTOS MINIMOS</th>
+                  <th class="head-item mbr-fonts-style">PRESUPUESTO ELEGIDO</th>
+                  <th class="head-item mbr-fonts-style">PRESUPUESTOS</th>
+                  <th class="head-item mbr-fonts-style">CATEGORIA</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {{#each egresos}}
+                  <tr>
+                      <td class="body-item mbr-fonts-style">{{id}}</td>
+                      <td class="body-item mbr-fonts-style">{{fechaOperacion}}</td>
+                      <td class="body-item mbr-fonts-style">{{criterioProveedor.descripcion}}</td>
+                      <td class="body-item mbr-fonts-style">{{total}}</td>
+                      <td class="body-item mbr-fonts-style">{{ingreso.id}}</td>
+                      <td class="body-item mbr-fonts-style">{{cantidadPresupuestosRequeridos}}</td>
+                      <td class="body-item mbr-fonts-style">{{presupuestoElegido.id}}</td>
+                      <td class="body-item mbr-fonts-style">
+                        {{#each presupuestos}}
+                            <p class="body-item mbr-fonts-style">{{id}}</p>
+                        {{/each}}
+                      </td>
+                      <td class="body-item mbr-fonts-style">
+                        {{#each categoriasEgreso}}
+                          <p class="body-item mbr-fonts-style">{{descripcion}}</p>
+                        {{/each}}
+                      </td> 
+                  </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        <div class="container table-info-container">
+          <div class="row info">
+            <div class="col-md-6">
+              <div class="dataTables_info mbr-fonts-style display-7">
+                <span class="infoBefore">Mostrando</span>
+                <span class="inactive infoRows"></span>
+                <span class="infoAfter">entradas</span>
+                <span class="infoFilteredBefore">(de</span>
+                <span class="inactive infoRows"></span>
+                <span class="infoFilteredAfter"> entradas totales)</span>
+              </div>
+            </div>
+            <div class="col-md-6"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="form5 cid-seF2xxTqLz" id="form5-21">
+    <div class="container">
+        <div class="mbr-section-head">
+            <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Nuevo Egreso</strong></h3>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-8 mx-auto mbr-form">
+                <form action="/egreso" method="POST" class="mbr-form form-with-styler" data-form-title="Nuevo Egreso">
+                    <div class="">
+                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">El egreso ha sido cargado con éxito</div>
+                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Error al cargar el egreso</div>
+                    </div>
+                    <div class="dragArea row">
+                        <div class="col-md col-sm-12 form-group" data-for="medioDePago">
+                            <label class="mbr-section-subtitle mbr-fonts-style display-7">Medio de pago</label>
+                            <select name="medioDePago" class="form-control"  placeholder="Medio de pago" data-form-field="medioDePago"  value="" id="name-form5-21" required>
+                                <option>Paypal</option>
+                                <option>Visa</option>
+                                <option>Master</option>
+                            </select>
+                        </div>
+                        <div class="col-md col-sm-12 form-group" data-for="fechaOperacion">
+                            <label class="mbr-section-subtitle mbr-fonts-style display-7">Fecha de egreso</label>
+                            <input type="date" name="fechaOperacion" placeholder="Fecha de operacion" data-form-field="fechaOperacion" class="form-control" value="" id="email-form5-21" required>
+                        </div>
+                        <div class="col-md col-sm-12 form-group" data-for="criterioProveedor">
+                            <label class="mbr-section-subtitle mbr-fonts-style display-7">Criterio de proveedor</label>
+                            <select type="text" name="criterioProveedor" placeholder="Criterio Proveedor" data-form-field="criterioProveedor" class="form-control" value="" id="criterioProveedor" required>
+                                <option>Menor Valor</option>
+                                <!--option>Ninguno</option-->
+                            </select>
+                        </div>
+                        <div class="col-12 form-group" data-for="categoria">
+                            <label class="mbr-section-subtitle mbr-fonts-style display-7">Categoría de egreso</label>
+                            <select name="categoria" class="form-control"  placeholder="Categoria de egreso" data-form-field="categoria"  value="" id="name-form5-21" required>
+                                {{#each categorias}}
+                                    <option >{{id}}-{{descripcion}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-12 form-group" data-for="total">
+                            <input type="text" name="total" placeholder="Monto total" data-form-field="monto total" class="form-control" value="" id="url-form5-21" required>
+                        </div>
+                        <div class="col-md col-sm-12 form-group">
+                            <div class="col-md col-sm-12 form-group" data-for="requierePresupuesto">
+                                <label class="mbr-section-subtitle mbr-fonts-style display-7">¿Requiere presupuesto?</label>
+                                <input type="checkbox" name="requierePresupuesto" placeholder="¿Requiere presupuesto?" data-form-field="requierePresupuesto" class="form-control" id="requierePresupuesto" onchange="showInput(this)" checked width="50%">
+                            </div>
+                        </div>
+                        <div class="col-md col-sm-12 form-group" data-for="cantPresupuestosRequeridos" id="divCantPresupuestosRequeridos">
+                            <label class="mbr-section-subtitle mbr-fonts-style display-7" id="labelCantPresupuestosRequeridos">Cantidad requerida</label>
+                            <input type="number" name="cantPresupuestosRequeridos" placeholder="" data-form-field="cantPresupuestosRequeridos" class="form-control" value="1" id="cantPresupuestosRequeridos" min="1">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"><button type="submit" class="btn btn-primary display-4">Cargar egreso</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="form5 cid-seF2xxTqLz" id="form5-21">
+    <div class="container">
+        <div class="mbr-section-head">
+            <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Asociar Egreso a Categoría</strong></h3>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-8 mx-auto mbr-form">
+                <form action="/asociarEgreso" method="get" class="mbr-form form-with-styler" data-form-title="Nuevo Egreso">
+                    <div class="">
+                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">El egreso ha sido cargado con éxito</div>
+                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Error al cargar el egreso</div>
+                    </div>
+                    <div class="dragArea row">
+                        <div class="col-md col-sm-12 form-group" data-for="egresos">
+                            <label class="mbr-section-subtitle mbr-fonts-style display-7">Egreso</label>
+                            <select name="egreso" class="form-control"  placeholder="" data-form-field=""  value="" id="name-form5-21" required>
+                                {{#each egresos}}
+                                    <option>{{id}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-md col-sm-12 form-group" data-for="egresos">
+                            <label class="mbr-section-subtitle mbr-fonts-style display-7">Categoría</label>
+                            <select name="categoria" class="form-control"  placeholder="" data-form-field=""  value="" id="name-form5-21" required>
+                                {{#each categorias}}
+                                    <option >{{id}}-{{descripcion}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn">
+                            <button type="submit" class="btn btn-primary display-4">Asociar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+    
+<section class="footer3 cid-sdN6Jo7bCz" once="footers" id="footer3-1o">
+    <div class="container">
+        <div class="media-container-row align-center mbr-white">
+            <div class="row social-row">
+                <div class="social-list align-right pb-2">  
+                    <div class="soc-item">
+                        <a href="https://twitter.com/frbautn" target="_blank">
+                            <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
+                        </a>
+                    </div>
+                    <div class="soc-item">
+                        <a href="https://www.facebook.com/ddsutnbaoficial/" target="_blank">
+                            <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
+                        </a>
+                    </div>
+                    <div class="soc-item">
+                        <a href="https://www.instagram.com/ddsutnbaoficial/" target="_blank">
+                            <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-copirayt">
+                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">© Copyright 2020 G4. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+    
+<section hidden style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;">
+    <a href="https://mobirise.site/v" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a>
+    <p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Set up a free <a href="https://mobirise.site/y" style="color:#aaa;">website</a> with Mobirise</p>
+</section>
+    
+    
+<script>
+    function showInput(checkboxElem) {
+      if (checkboxElem.checked) {
+        document.getElementById('divCantPresupuestosRequeridos').setAttribute("style","display:block");
+        document.getElementById('cantPresupuestosRequeridos').setAttribute("value","1");
+        document.getElementById('cantPresupuestosRequeridos').setAttribute("min","1");
+      } else {
+        document.getElementById('divCantPresupuestosRequeridos').setAttribute("style","display:none");
+        document.getElementById('cantPresupuestosRequeridos').setAttribute("value","0");
+        document.getElementById('cantPresupuestosRequeridos').setAttribute("min","0");
+      }
+    }
+</script>
+<script src="assets/web/assets/jquery/jquery.min.js"></script>
+<script src="assets/popper/popper.min.js"></script>
+<script src="assets/tether/tether.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/smoothscroll/smooth-scroll.js"></script>
+<script src="assets/datatables/jquery.data-tables.min.js"></script>
+<script src="assets/datatables/data-tables.bootstrap4.min.js"></script>
+<script src="assets/parallax/jarallax.min.js"></script>
+<script src="assets/formstyler/jquery.formstyler.js"></script>
+<script src="assets/formstyler/jquery.formstyler.min.js"></script>
+<script src="assets/datepicker/jquery.datetimepicker.full.js"></script>
+<script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+<script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+<script src="assets/theme/js/script.js"></script>
+<script src="assets/formoid/formoid.min.js"></script>  
+  
+</body>
+</html>
